@@ -14,7 +14,21 @@ describe('fetchBreedDescription', () => {
 
       done();
     });
-   
     
+    
+  });
+  it('returns error messeage for a invalid breed, via callback', (done) => {
+    fetchBreedDescription('S', (err, desc) => {
+      // we expect no error for this scenario
+      assert.equal(err, null);
+
+      const expectedDesc = "the breed name can't be found check if you gave the write name";
+
+      // compare returned description
+      assert.equal(expectedDesc, "the breed name can't be found check if you gave the write name");
+
+      done();
+    });
+  
   });
 });
